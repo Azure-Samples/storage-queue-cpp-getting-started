@@ -36,6 +36,25 @@ void set_cors_rules(utility::string_t storage_connection_string);
 
 int main()
 {
+	// *************************************************************************************************************************
+	// Instructions: This sample can be run using either the Azure Storage Emulator that installs as part of this SDK - or by
+	// updating the storage_connection_string with your AccountName and Key. 
+	// 
+	// To run the sample using the Storage Emulator (default option)
+	//      1. Start the Azure Storage Emulator (once only) by pressing the Start button or the Windows key and searching for it
+	//         by typing "Azure Storage Emulator". Select it from the list of applications to start it.
+	//      2. Set breakpoints and run the project using F10. 
+	// 
+	// To run the sample using the Storage Service
+	//      1. Change the storage_connection_string  for the emulator (UseDevelopmentStorage=True) and
+	//         replace it with the storage_connection_string the storage service (AccountName=[]...)
+	//      2. Create a Storage Account through the Azure Portal and provide your [AccountName] and [AccountKey] in 
+	//         the App.Config file. See http://go.microsoft.com/fwlink/?LinkId=325277 for more information
+	//      3. Set breakpoints and run the project using F10. 
+	// 
+	// *************************************************************************************************************************
+
+
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true"));
 
 	basic_queue_operations(storage_connection_string);
@@ -47,6 +66,7 @@ int main()
 	return 0;
 }
 
+// basic operations with queues
 void basic_queue_operations(utility::string_t storage_connection_string)
 {
 	// Generate unique container name
@@ -107,10 +127,6 @@ void basic_queue_operations(utility::string_t storage_connection_string)
 	
 	try
 	{
-		// Get the message from the queue and update the message contents.
-		// The visibility timeout "0" means make it visible immediately.
-		// The visibility timeout "60" means the client can get another minute to continue
-		// working on the message.
 		message = queue.get_message();
 	}
 	catch (const std::exception& e)
@@ -222,6 +238,7 @@ void list_queues(utility::string_t storage_connection_string)
 	}
 }
 
+// set cors rules for enabling preflight blob requests from a web browser
 void set_cors_rules(utility::string_t storage_connection_string)
 {
 	// Parse the connection string
