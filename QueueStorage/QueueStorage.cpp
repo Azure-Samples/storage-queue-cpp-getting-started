@@ -1,5 +1,30 @@
-// QueueStorage.cpp : Defines the entry point for the console application.
+//----------------------------------------------------------------------------------
+// Microsoft Developer & Platform Evangelism
 //
+// Copyright (c) Microsoft Corporation. All rights reserved.
+//
+// THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, 
+// EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES 
+// OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.
+//----------------------------------------------------------------------------------
+// The example companies, organizations, products, domain names,
+// e-mail addresses, logos, people, places, and events depicted
+// herein are fictitious.  No association with any real company,
+// organization, product, domain name, email address, logo, person,
+// places, or events is intended or should be inferred.
+//----------------------------------------------------------------------------------
+
+/// 
+/// The Queue Service provides reliable messaging for workflow processing and for communication
+/// between loosely coupled components of cloud services.This sample demonstrates how to perform common tasks including
+/// inserting, peeking, getting and deleting queue messages, as well as creating and deleting queues.
+///
+/// -[What is a Storage Account](http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/)
+/// -[Queue Service Concepts](http ://msdn.microsoft.com/en-us/library/dd179353.aspx)
+///	-[Queue Service REST API](http ://msdn.microsoft.com/en-us/library/dd179363.aspx)
+///	-[Queue Service C++ API](https ://azure.microsoft.com/en-us/documentation/articles/storage-c-plus-plus-how-to-use-queues/)
+///	-[Storage Emulator](http ://msdn.microsoft.com/en-us/library/azure/hh403989.aspx)
+/// 
 
 #include "stdafx.h"
 
