@@ -14,11 +14,19 @@
 // places, or events is intended or should be inferred.
 //----------------------------------------------------------------------------------
 
+using namespace azure::storage;
+
 #pragma once
+class queue_advanced
+{
+public:
+  queue_advanced();
+  ~queue_advanced();
 
-// Including SDKDDKVer.h defines the highest available Windows platform.
+  static void list_queues(cloud_queue_client queue_client);
+  static void set_cors_rules(cloud_queue_client queue_client);
+  static void set_service_properties(cloud_queue_client queue_client);
+  static void set_metadata_and_properties(cloud_queue_client queue_client);
+  static void set_queue_acl(cloud_queue_client queue_client);
+};
 
-// If you wish to build your application for a previous Windows platform, include WinSDKVer.h and
-// set the _WIN32_WINNT macro to the platform you wish to support before including SDKDDKVer.h.
-
-#include <SDKDDKVer.h>

@@ -1,3 +1,4 @@
+#pragma once
 //----------------------------------------------------------------------------------
 // Microsoft Developer & Platform Evangelism
 //
@@ -14,7 +15,14 @@
 // places, or events is intended or should be inferred.
 //----------------------------------------------------------------------------------
 
-#include "stdafx.h"
+using namespace azure::storage;
 
-// TODO: reference any additional headers you need in STDAFX.H
-// and not in this file
+class queue_basic
+{
+public:
+  queue_basic();
+  ~queue_basic();
+
+  static void queue_operations(cloud_queue_client queue_client);
+};
+
