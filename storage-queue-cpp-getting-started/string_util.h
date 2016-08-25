@@ -18,6 +18,6 @@
 class string_util
 {
 public:
-  static utility::string_t random_string();
+    static utility::string_t random_string();
 };
 

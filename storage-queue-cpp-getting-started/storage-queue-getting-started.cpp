@@ -24,36 +24,36 @@ void run_storage_queue_samples(utility::string_t storage_connection_string);
 
 int main()
 {
-  // *************************************************************************************************************************
-  // Instructions: This sample can be run using either the Azure Storage Emulator that installs as part of the Windows Azure SDK (in Windows only) - or by
-  // updating the storage_connection_string with your AccountName and Key. 
-  // 
-  // To run the sample using the Storage Emulator (Windows Azure SDK)
-  //      1. Start the Azure Storage Emulator (once only) by pressing the Start button or the Windows key and searching for it
-  //         by typing "Azure Storage Emulator". Select it from the list of applications to start it.
-  //      2. Set breakpoints and run the project using F10. 
-  // 
-  // To run the sample using the Storage Service
-  //      1. Update the storage_connection_string variable for the emulator (UseDevelopmentStorage=True) and
-  //         replace it with the storage_connection_string for the storage service (AccountName=[]...)
-  //      2. Create a Storage Account through the Azure Portal and provide your [AccountName] and [AccountKey] in 
-  //         the App.Config file. See http://go.microsoft.com/fwlink/?LinkId=325277 for more information
-  //      3. Set breakpoints and run the project using F10. 
-  // 
-  // *************************************************************************************************************************
+    // *************************************************************************************************************************
+    // Instructions: This sample can be run using either the Azure Storage Emulator that installs as part of the Windows Azure SDK (in Windows only) - or by
+    // updating the storage_connection_string with your AccountName and Key. 
+    // 
+    // To run the sample using the Storage Emulator (Windows Azure SDK)
+    //      1. Start the Azure Storage Emulator (once only) by pressing the Start button or the Windows key and searching for it
+    //         by typing "Azure Storage Emulator". Select it from the list of applications to start it.
+    //      2. Set breakpoints and run the project using F10. 
+    // 
+    // To run the sample using the Storage Service
+    //      1. Update the storage_connection_string variable for the emulator (UseDevelopmentStorage=True) and
+    //         replace it with the storage_connection_string for the storage service (AccountName=[]...)
+    //      2. Create a Storage Account through the Azure Portal and provide your [AccountName] and [AccountKey] in 
+    //         this file. See http://go.microsoft.com/fwlink/?LinkId=325277 for more information
+    //      3. Set breakpoints and run the project using F10. 
+    // 
+    // *************************************************************************************************************************
 
-  const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true"));
+    const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true"));
 
-  try
-  {
-    run_storage_queue_samples(storage_connection_string);
-  }
-  catch (const azure::storage::storage_exception& e)
-  {
-    ucout << U("Error:") << e.what() << std::endl << U("Unexpected exception while running the sample.") << std::endl;
-  }
+    try
+    {
+        run_storage_queue_samples(storage_connection_string);
+    }
+    catch (const azure::storage::storage_exception& e)
+    {
+        ucout << U("Error:") << e.what() << std::endl << U("Unexpected exception while running the sample.") << std::endl;
+    }
 
-  return 0;
+    return 0;
 }
 
 /// 
@@ -63,27 +63,27 @@ int main()
 ///
 void run_storage_queue_samples(utility::string_t storage_connection_string)
 {
-  // Parse the connection string
-  cloud_storage_account storage_account = cloud_storage_account::parse(storage_connection_string);
+    // Parse the connection string
+    cloud_storage_account storage_account = cloud_storage_account::parse(storage_connection_string);
 
-  cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
+    cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 
-  // basic operations with queues
-  queue_basic::queue_operations(queue_client);
+    ucout << U("*** Queue Operations ***") << std::endl;
+    queue_basic::queue_operations(queue_client);
 
-  //list queues in account
-  queue_advanced::list_queues(queue_client);
+    ucout << U("*** List Queues ***") << std::endl;
+    queue_advanced::list_queues(queue_client);
 
-  // set cors rules
-  queue_advanced::set_cors_rules(queue_client);
+    ucout << U("*** Set Cors Rules ***") << std::endl;
+    queue_advanced::set_cors_rules(queue_client);
 
-  // set service properties
-  queue_advanced::set_service_properties(queue_client);
+    ucout << U("*** Set Service Properties ***") << std::endl;
+    queue_advanced::set_service_properties(queue_client);
 
-  // set container and blob metadata and properties
-  queue_advanced::set_metadata_and_properties(queue_client);
+    ucout << U("*** Set Queue Metadata and Properties ***") << std::endl;
+    queue_advanced::set_metadata_and_properties(queue_client);
 
-  // set container permissions
-  queue_advanced::set_queue_acl(queue_client);
+    ucout << U("*** Set Queue ACL ***") << std::endl;
+    queue_advanced::set_queue_acl(queue_client);
 }
 

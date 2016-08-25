@@ -20,13 +20,10 @@ using namespace azure::storage;
 class queue_advanced
 {
 public:
-  queue_advanced();
-  ~queue_advanced();
-
-  static void list_queues(cloud_queue_client queue_client);
-  static void set_cors_rules(cloud_queue_client queue_client);
-  static void set_service_properties(cloud_queue_client queue_client);
-  static void set_metadata_and_properties(cloud_queue_client queue_client);
-  static void set_queue_acl(cloud_queue_client queue_client);
+    static void list_queues(cloud_queue_client queue_client);
+    static void set_cors_rules(cloud_queue_client queue_client);
+    static void set_service_properties(cloud_queue_client queue_client);
+    static void set_metadata_and_properties(cloud_queue_client queue_client);
+    static void set_queue_acl(cloud_queue_client queue_client);
 };
 

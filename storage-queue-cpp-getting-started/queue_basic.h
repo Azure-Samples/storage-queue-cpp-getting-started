@@ -20,9 +20,6 @@ using namespace azure::storage;
 class queue_basic
 {
 public:
-  queue_basic();
-  ~queue_basic();
-
-  static void queue_operations(cloud_queue_client queue_client);
+    static void queue_operations(cloud_queue_client queue_client);
 };
 

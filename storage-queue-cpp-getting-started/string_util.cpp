@@ -22,11 +22,11 @@
 ///
 utility::string_t string_util::random_string()
 {
-  utility::nonce_generator nonce;
-  nonce.set_length(5);
+    utility::nonce_generator nonce;
+    nonce.set_length(5);
 
-  utility::string_t random = nonce.generate();
-  std::transform(random.begin(), random.end(), random.begin(), ::tolower);
+    utility::string_t random = nonce.generate();
+    std::transform(random.begin(), random.end(), random.begin(), ::tolower);
 
-  return random;
+    return random;
 }
