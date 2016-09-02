@@ -29,7 +29,7 @@ void queue_advanced::list_queues(cloud_queue_client queue_client)
     { 
         ucout << U("Creating queues") << std::endl;
 
-        utility::string_t queue_prefix = U("my-sample-queue");
+        utility::string_t queue_prefix = U("my-sample-queue-");
 
         // Try to generate 5 queues with random name using the prefix
         for (int i = 0; i < 5; i++)
@@ -43,23 +43,20 @@ void queue_advanced::list_queues(cloud_queue_client queue_client)
 
         ucout << U("Listing all the available queues") << std::endl;
         queue_result_iterator end_of_results;
-        for (auto it = queue_client.list_queues(); it != end_of_results; ++it)
+        for (auto it = queue_client.list_queues(queue_prefix); it != end_of_results; ++it)
         {
             ucout << U("Queue ") << it->name() << ", URI = " << it->uri().primary_uri().to_string() << std::endl;
         }
 
         ucout << U("Deleting queues") << std::endl;
 
-        for (auto it = queue_client.list_queues(); it != end_of_results; ++it)
+        for (auto it = queue_client.list_queues(queue_prefix); it != end_of_results; ++it)
         {
-            if (it->name().substr(0, queue_prefix.length()) == queue_prefix)
-            {
-                // Retrieve a reference to a queue.
-                cloud_queue queue = queue_client.get_queue_reference(it->name());
+            // Retrieve a reference to a queue.
+            cloud_queue queue = queue_client.get_queue_reference(it->name());
 
-                // Delete the queue if it exists.
-                queue.delete_queue_if_exists();
-            }
+            // Delete the queue if it exists.
+            queue.delete_queue_if_exists();
         }
     }
     catch (const azure::storage::storage_exception& e)

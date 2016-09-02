@@ -23,7 +23,7 @@
 utility::string_t string_util::random_string()
 {
     utility::nonce_generator nonce;
-    nonce.set_length(5);
+    nonce.set_length(10);
 
     utility::string_t random = nonce.generate();
     std::transform(random.begin(), random.end(), random.begin(), ::tolower);
